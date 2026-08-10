@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useGet } from "../Hooks/UseGet";
 import FullPageLoader from "@/components/Loading";
-import { User, Mail, Phone, Shield, Camera, Edit3, Loader2 } from "lucide-react";
+import { User, Mail, Phone, Shield, Camera, Edit3, Loader2, Eye, EyeOff } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -20,6 +20,7 @@ export default function Profile() {
   });
   const [isUpdating, setIsUpdating] = useState(false);
   const [imagePreview, setImagePreview] = useState(null);
+  const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
     let profile = data?.data || data?.security || data;
@@ -240,14 +241,23 @@ export default function Profile() {
                     {/* Password */}
                     <div className="md:col-span-2" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                       <label className="text-sm font-semibold text-gray-700" style={{ marginLeft: '0.25rem' }}>Password</label>
-                      <Input 
-                        name="password"
-                        type="password"
-                        value={formData.password}
-                        onChange={handleInputChange}
-                        placeholder="Leave blank to keep current password"
-                        className="h-12 px-4 rounded-xl border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-[#0AA6A5]/20 focus:border-[#0AA6A5] transition-all"
-                      />
+                      <div className="relative">
+                        <Input 
+                          name="password"
+                          type={showPassword ? "text" : "password"}
+                          value={formData.password}
+                          onChange={handleInputChange}
+                          placeholder="Leave blank to keep current password"
+                          className="h-12 px-4 rounded-xl border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-[#0AA6A5]/20 focus:border-[#0AA6A5] transition-all pr-12"
+                        />
+                        <button
+                          type="button"
+                          onClick={() => setShowPassword(!showPassword)}
+                          className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none"
+                        >
+                          {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                        </button>
+                      </div>
                     </div>
                   </div>
                   
