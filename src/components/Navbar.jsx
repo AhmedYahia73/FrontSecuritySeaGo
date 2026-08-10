@@ -30,7 +30,7 @@ export default function Navbar() {
   const handleLogout = async () => {
 
     try {
-      const response = await api.get("/security/logout");
+      const response = await api.get("/api/logout");
 
       if (response.status === 200 || response.status === 204) {
         clearAuthData();
