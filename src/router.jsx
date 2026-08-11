@@ -23,6 +23,7 @@ import PoolDashboard from "./Pages/Pools/PoolDashboard";
 import PoolUsersSearch from "./Pages/Pools/PoolUsersSearch";
 import InsideGateDashboard from "./Pages/InsideGates/InsideGateDashboard";
 import InsideGateUsersSearch from "./Pages/InsideGates/InsideGateUsersSearch";
+import InsideGateVisitorsSearch from "./Pages/InsideGates/InsideGateVisitorsSearch";
 
 const router = createBrowserRouter([
   {
@@ -109,6 +110,10 @@ const router = createBrowserRouter([
       {
         path: "/inside-gates/:id/users",
         element: <InsideGateUsersSearch />,
+      },
+      {
+        path: "/inside-gates/:id/visitors",
+        element: <InsideGateVisitorsSearch />,
       },
       {
         path: "*",

@@ -71,6 +71,41 @@ export default function InsideGateDashboard() {
           </div>
         )}
 
+        {/* Premium CTA Banner for Visitor Management */}
+        <div className="relative overflow-hidden rounded-[2.5rem] bg-white shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100 flex flex-col md:flex-row items-center justify-between w-full" style={{ marginTop: '4rem', marginBottom: '2rem', padding: '3.5rem', gap: '2.5rem' }}>
+          
+          {/* Decorative Elements */}
+          <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/3 w-64 h-64 bg-teal-50 rounded-full blur-[60px] opacity-70 pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-48 h-48 bg-[#0AA6A5] rounded-full blur-[80px] opacity-10 pointer-events-none"></div>
+          
+          <div className="relative z-10 flex items-center" style={{ gap: '1.5rem' }}>
+            <div className="w-20 h-20 shrink-0 rounded-3xl bg-gradient-to-br from-teal-50 to-white border border-teal-100 flex items-center justify-center shadow-sm">
+              <Users className="w-10 h-10 text-[#0AA6A5]" />
+            </div>
+            <div>
+              <h3 className="text-3xl font-bold text-gray-900 tracking-tight" style={{ marginBottom: '0.75rem' }}>
+                Visitor Access Control
+              </h3>
+              <p className="text-gray-500 text-lg max-w-lg leading-relaxed">
+                Search for incoming visitors by unit number or owner name, verify their credentials, and grant secure entry to the inside gate.
+              </p>
+            </div>
+          </div>
+          
+          <div className="relative z-10 shrink-0 w-full md:w-auto">
+            <button 
+              onClick={() => navigate(`/inside-gates/${id}/visitors`)}
+              className="group flex items-center justify-center w-full md:w-auto bg-gradient-to-r from-[#0AA6A5] to-teal-400 hover:from-teal-500 hover:to-teal-400 text-white text-lg font-bold rounded-2xl transition-all duration-300 shadow-[0_8px_20px_rgba(10,166,165,0.3)] hover:shadow-[0_12px_25px_rgba(10,166,165,0.5)] hover:-translate-y-1"
+              style={{ padding: '1.25rem 2.5rem', gap: '0.75rem' }}
+            >
+              Search & Allow Entry
+              <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
         {/* Premium CTA Banner for User Entrance */}
         <div className="relative overflow-hidden rounded-[2.5rem] bg-white shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100 flex flex-col md:flex-row items-center justify-between w-full" style={{ marginBottom: '4rem', padding: '3.5rem', gap: '2.5rem' }}>
           
