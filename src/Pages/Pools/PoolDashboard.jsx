@@ -70,6 +70,41 @@ export default function PoolDashboard() {
           </div>
         </div>
 
+        {/* Premium CTA Banner for User Entrance */}
+        <div className="relative overflow-hidden rounded-[2.5rem] bg-white shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100 flex flex-col md:flex-row items-center justify-between w-full" style={{ marginBottom: '4rem', padding: '3.5rem', gap: '2.5rem' }}>
+          
+          {/* Decorative Elements */}
+          <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/3 w-64 h-64 bg-cyan-50 rounded-full blur-[60px] opacity-70 pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-48 h-48 bg-cyan-500 rounded-full blur-[80px] opacity-5 pointer-events-none"></div>
+          
+          <div className="relative z-10 flex items-center" style={{ gap: '1.5rem' }}>
+            <div className="w-20 h-20 shrink-0 rounded-3xl bg-gradient-to-br from-cyan-50 to-white border border-cyan-100 flex items-center justify-center shadow-sm">
+              <Users className="w-10 h-10 text-cyan-500" />
+            </div>
+            <div>
+              <h3 className="text-3xl font-bold text-gray-900 tracking-tight" style={{ marginBottom: '0.75rem' }}>
+                Pool Entrance Logging
+              </h3>
+              <p className="text-gray-500 text-lg max-w-lg leading-relaxed">
+                Log the entrance of registered village owners and renters to the pool. Search by exact phone number to authorize their entry and check umbrella availability.
+              </p>
+            </div>
+          </div>
+          
+          <div className="relative z-10 shrink-0 w-full md:w-auto">
+            <button 
+              onClick={() => navigate(`/pools/${id}/users`)}
+              className="group flex items-center justify-center w-full md:w-auto bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-700 hover:to-cyan-600 text-white text-lg font-bold rounded-2xl transition-all duration-300 shadow-[0_8px_20px_rgba(6,182,212,0.3)] hover:shadow-[0_12px_25px_rgba(6,182,212,0.5)] hover:-translate-y-1"
+              style={{ padding: '1.25rem 2.5rem', gap: '0.75rem' }}
+            >
+              Log User Entry
+              <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
       </div>
     </div>
   );

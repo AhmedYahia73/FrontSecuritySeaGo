@@ -4,7 +4,7 @@ import api from "../../utils/api";
 import { Search, ArrowLeft, LogIn, MapPin, CheckCircle2, User, Phone, XCircle, Umbrella, Clock } from "lucide-react";
 import { toast } from "react-toastify";
 
-export default function BeachUsersSearch() {
+export default function PoolUsersSearch() {
   const { id } = useParams();
   const navigate = useNavigate();
   
@@ -84,8 +84,8 @@ export default function BeachUsersSearch() {
     
     setIsSubmitting(true);
     try {
-      const response = await api.post("/security/beach_qr/entrance_beach_user", {
-        beach_id: id,
+      const response = await api.post("/security/pool_qr/entrance_user", {
+        pool_id: id,
         user_id: selectedUser.id,
         appartment_id: selectedUnit,
         locale: "en"
@@ -140,7 +140,7 @@ export default function BeachUsersSearch() {
           style={{ padding: '0.5rem 1rem', marginBottom: '1.5rem', gap: '0.5rem' }}
         >
           <ArrowLeft size={18} />
-          Back to Beach Dashboard
+          Back to Pool Dashboard
         </button>
 
         {/* Header Section Card */}
@@ -150,10 +150,10 @@ export default function BeachUsersSearch() {
 
           <div>
             <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-2 text-gray-900 relative z-10">
-              Beach Entrance Search
+              Pool Entrance Search
             </h1>
             <p className="text-gray-500 text-base max-w-xl relative z-10">
-              Search for owners and renters by phone number to log their entrance to the beach.
+              Search for owners and renters by phone number to log their entrance to the pool.
             </p>
           </div>
           
@@ -293,7 +293,7 @@ export default function BeachUsersSearch() {
                 <CheckCircle2 size={32} />
               </div>
               
-              <h2 className="text-2xl font-bold text-center text-gray-900" style={{ marginBottom: '0.75rem' }}>Log Beach Entrance</h2>
+              <h2 className="text-2xl font-bold text-center text-gray-900" style={{ marginBottom: '0.75rem' }}>Log Pool Entrance</h2>
               <p className="text-center text-gray-500 text-sm leading-relaxed" style={{ marginBottom: '2rem' }}>
                 Confirm entry for <span className="text-[#0AA6A5] font-semibold">{selectedUser?.name || 'User'}</span>.
               </p>
@@ -438,7 +438,7 @@ export default function BeachUsersSearch() {
                     <Umbrella size={40} className="text-red-400 mx-auto mb-3 opacity-50" />
                     <h3 className="text-xl font-bold text-gray-900 mb-2">No Umbrellas Available</h3>
                     <p className="text-gray-500 text-sm">
-                      This unit has already consumed its quota of umbrellas or has none available. Entry to the beach is currently restricted.
+                      This unit has already consumed its quota of umbrellas or has none available. Entry to the pool is currently restricted.
                     </p>
                   </div>
                 </>
@@ -460,3 +460,4 @@ export default function BeachUsersSearch() {
     </div>
   );
 }
+

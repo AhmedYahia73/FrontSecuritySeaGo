@@ -80,52 +80,51 @@ export default function GateVisitorsSearch() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50/50 text-gray-800 font-sans selection:bg-[#0AA6A5] selection:text-white pb-24 relative overflow-hidden">
-      
-      {/* Abstract Background Elements */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#0AA6A5]/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+    <div className="animate-in fade-in duration-700 bg-gray-50/50 min-h-screen w-full" style={{ padding: '2rem 1.5rem', paddingTop: '10px' }}>
+      <div className="max-w-6xl mx-auto w-full">
+        
+        {/* Navigation */}
+        <button 
+          onClick={() => navigate(-1)} 
+          className="flex items-center text-gray-500 hover:text-[#0AA6A5] transition-colors font-medium bg-white rounded-full shadow-sm border border-gray-100 w-fit"
+          style={{ padding: '0.5rem 1rem', marginBottom: '1.5rem', gap: '0.5rem' }}
+        >
+          <ArrowLeft size={18} />
+          Back to Gate Dashboard
+        </button>
 
-      {/* Header Section */}
-      <div className="relative z-10 border-b border-gray-200 bg-white shadow-sm" style={{ padding: '2rem 1.5rem' }}>
-        <div className="max-w-6xl mx-auto">
-          <button 
-            onClick={() => navigate(-1)} 
-            className="group flex items-center gap-2 text-sm text-gray-500 hover:text-[#0AA6A5] transition-all font-medium mb-6 w-fit"
-          >
-            <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-            Back to Gate Dashboard
-          </button>
+        {/* Header Section Card */}
+        <div className="relative overflow-hidden rounded-3xl bg-white border border-gray-100 shadow-[0_2px_20px_rgb(0,0,0,0.02)] flex flex-col z-10" style={{ padding: '2.5rem', marginBottom: '2rem', gap: '1.5rem' }}>
           
-          <div className="flex flex-col gap-6">
-            <div>
-              <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-2 text-gray-900">
-                Visitor Access Center
-              </h1>
-              <p className="text-gray-500 text-base max-w-xl">
-                Seamlessly search, verify, and grant entry to incoming visitors with real-time logging.
-              </p>
+          <div className="absolute top-0 right-0 -translate-y-12 translate-x-12 w-64 h-64 bg-teal-50 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+
+          <div>
+            <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-2 text-gray-900 relative z-10">
+              Visitor Access Center
+            </h1>
+            <p className="text-gray-500 text-base max-w-xl relative z-10">
+              Seamlessly search, verify, and grant entry to incoming visitors with real-time logging.
+            </p>
+          </div>
+          
+          {/* Search Bar */}
+          <div className="relative w-full mt-2 z-10">
+            <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
+              <Search className="h-6 w-6 text-gray-400" />
             </div>
-            
-            {/* Search Bar - Full Width below title */}
-            <div className="relative w-full">
-              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <Search className="h-6 w-6 text-gray-400" />
-              </div>
-              <input
-                type="text"
-                placeholder="Search by unit number or owner name..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                style={{ paddingLeft: '3.5rem', height: '4rem' }}
-                className="w-full rounded-xl bg-gray-50 border border-gray-200 text-gray-900 text-lg placeholder:text-gray-400 focus:bg-white focus:border-[#0AA6A5]/50 focus:ring-2 focus:ring-[#0AA6A5]/20 transition-all outline-none shadow-sm hover:border-gray-300"
-              />
-            </div>
+            <input
+              type="text"
+              placeholder="Search by unit number or owner name..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              style={{ paddingLeft: '4rem' }}
+              className="w-full h-16 rounded-2xl bg-gray-50 border border-gray-200 text-gray-900 text-lg placeholder:text-gray-400 focus:bg-white focus:border-[#0AA6A5]/50 focus:ring-4 focus:ring-[#0AA6A5]/10 transition-all outline-none shadow-sm hover:border-gray-300"
+            />
           </div>
         </div>
-      </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 max-w-6xl mx-auto mt-10" style={{ padding: '0 1.5rem' }}>
+        {/* Main Content */}
+        <div className="relative z-10 w-full mt-8">
         
         {loading && !data ? (
           <div className="flex justify-center items-center py-20">
@@ -256,6 +255,7 @@ export default function GateVisitorsSearch() {
           </div>
         </div>
       )}
+      </div>
     </div>
   );
 }

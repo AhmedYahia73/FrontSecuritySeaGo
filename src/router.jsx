@@ -20,6 +20,7 @@ import GateUsersSearch from "./Pages/Gates/GateUsersSearch";
 import BeachDashboard from "./Pages/Beaches/BeachDashboard";
 import BeachUsersSearch from "./Pages/Beaches/BeachUsersSearch";
 import PoolDashboard from "./Pages/Pools/PoolDashboard";
+import PoolUsersSearch from "./Pages/Pools/PoolUsersSearch";
 import InsideGateDashboard from "./Pages/InsideGates/InsideGateDashboard";
 import InsideGateUsersSearch from "./Pages/InsideGates/InsideGateUsersSearch";
 
@@ -96,6 +97,10 @@ const router = createBrowserRouter([
       {
         path: "/pools/:id",
         element: <PoolDashboard />,
+      },
+      {
+        path: "/pools/:id/users",
+        element: <PoolUsersSearch />,
       },
       {
         path: "/inside-gates/:id",
